@@ -9,13 +9,6 @@
   <title>Project 1 MSJ</title>
 </head>
 <body>
-
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script  type="text/javascript" src="main.js"></script>
   
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
@@ -24,6 +17,7 @@
         </div>
       </div>
           <div class="container" id="buttonOptions">
+            <h3>What would you like to do?</h3>
             <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                   <button id="stayHome">Stay Home </button>
@@ -32,22 +26,37 @@
                     </div>
               </div>
                 <div class="container" id="genreButtons">
+                  <h3>What kind of movie would you like to watch?</h3>
                   <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                      <button id="btn-Action">Action</button>
-                      <button id="btn-Comedy">Comedy</button>
-                      <button id="btn-Drama">Drama</button>
-                      <button id="btn-Horror">Horror</button>
+                      <button id="btn-Action" value="action">Action</button>
+                      <button id="btn-Comedy" value="comedy">Comedy</button>
+                      <button id="btn-Drama" value="drama">Drama</button>
+                      <button id="btn-Horror" value="horror">Horror</button>
                     </div>
                   </div>
                 </div>
             </div>
           </div>
-          
+              <div class="container" id="moviePoster">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div> <img src="" alt="Movie" id="movie1"></div>
+                        <div> <img src="" alt="Movie" id="movie2"></div>
+                        <div> <img src="" alt="Movie" id="movie3"></div>
+                        <div> <img src="" alt="Movie" id="movie4"></div>
+                    </div>
+                </div>
+                
 
 
 
-
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script  type="text/javascript" src="main.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  
