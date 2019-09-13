@@ -10,7 +10,7 @@ var database = firebase.database(); */
 
 $(document).ready(function() {
   $("#genreButtons").hide()
-  $("#moviePosters").hide()
+  $("#moviePoster").hide()
 });
 
 $("#stayHome").on("click", function () {
@@ -66,15 +66,48 @@ function getactionMovies() {
     var movieFour = response.results[3].title
     console.log(movieFour)
 
-    $("movie1").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[0].poster_path)
-    $("movie2").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[1].poster_path)
-    $("movie3").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[2].poster_path)
-    $("movie4").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[3].poster_path)
+    $("#movie1").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[0].poster_path)
+    $("#movie2").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[1].poster_path)
+    $("#movie3").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[2].poster_path)
+    $("#movie4").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[3].poster_path)
+
+    $("#movie1").attr("value", movieOne)
+    $("#movie2").attr("value", movieTwo)
+    $("#movie3").attr("value", movieThree)
+    $("#movie4").attr("value",movieFour)
+    console.log("https://image.tmdb.org/t/p/w185/" + response.results[0].poster_path)
 })
 }
 
 $("#btn-Action").on("click", function () {
-    $("#moviePosters").show()
+    $("#moviePoster").show()
     getactionMovies()
     console.log("hey")
+})
+
+
+$("img").on("click", function (){ 
+
+  var movieTitle = $(this).attr("value")
+  console.log(movieTitle)
+
+  fetch ("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=" + movieTitle + "&country=us", {
+
+  "method": "GET",
+  "headers": {
+        "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
+        "x-rapidapi-key": "fc4a809c12msh61382c12edef21bp1a1041jsn79853bad1e8a"
+    }
+  })
+
+  /* need for loop */
+    .then(response => {
+      response.json().then(function(parsedJSON) {
+        console.log(parsedJSON);
+
+        var movieLocationOne = parsedJSON.results[0].locations[0].display_name
+        console.log(movieLocationOne)
+      });
+  })
+
 })
