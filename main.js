@@ -76,4 +76,5 @@ function getactionMovies() {
 $("#btn-Action").on("click", function () {
     $("#moviePosters").show()
     getactionMovies()
+    console.log("hey")
 })
