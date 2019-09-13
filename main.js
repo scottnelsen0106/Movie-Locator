@@ -10,6 +10,7 @@ var database = firebase.database(); */
 
 $(document).ready(function() {
   $("#genreButtons").hide()
+  $("#moviePosters").hide()
 });
 
 $("#stayHome").on("click", function () {
@@ -44,6 +45,8 @@ var dramaStayReleaseURL = "https://api.themoviedb.org/3/discover/movie?api_key=f
 
 var horrorStayReleaseURL = "https://api.themoviedb.org/3/discover/movie?api_key=fba4b8ce04296fb7fc2c5e02f832d206&release_date.lte=" + releaseDateStay + "&with_genres=" + genreHorror;
 
+console.log(actionStayReleaseURL)
+
 function getactionMovies() {
 
   $.ajax({
@@ -63,9 +66,15 @@ function getactionMovies() {
     var movieFour = response.results[3].title
     console.log(movieFour)
 
-  });
-
+    $("movie1").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[0].poster_path)
+    $("movie2").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[1].poster_path)
+    $("movie3").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[2].poster_path)
+    $("movie4").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[3].poster_path)
+})
 }
 
-getactionMovies ()
-
+$("#btn-Action").on("click", function () {
+    $("#moviePosters").show()
+    getactionMovies()
+    console.log("hey")
+})
