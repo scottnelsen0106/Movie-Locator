@@ -70,8 +70,10 @@ function getactionMovies() {
     $("movie2").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[1].poster_path)
     $("movie3").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[2].poster_path)
     $("movie4").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[3].poster_path)
+})
 }
+
 $("#btn-Action").on("click", function () {
     $("#moviePosters").show()
     getactionMovies()
-}
+})
