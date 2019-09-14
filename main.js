@@ -151,7 +151,12 @@ function validateZip (str) {
 $("#zipCodeButton").on("click", function() {
   getZipCode ()
   console.log(zipNumber)
-  validateZip ()
+  console.log(validateZip (zipNumber))
+
+  if (validateZip (zipNumber) === false) {
+    $("#invalidZip").text("Invalid zip code. Please enter a valid zip code")
+  }
+
 
 })
 
