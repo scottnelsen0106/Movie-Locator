@@ -12,12 +12,17 @@ $(document).ready(function() {
   $("#genreButtons").hide()
   $("#moviePoster").hide()
   $("#zipCodeForm").hide();
+  $("#mapContainer").hide()
 });
 
 $("#stayHome").on("click", function () {
   $("#genreButtons").show()
   $("#zipCodeForm").hide();
 })
+
+var platform = new H.service.Platform({
+  'apikey': '{gY7CJ17DQXX4MQuLdqRbIbNV8WD4cnzKVzCyWWm2oog'
+});
 
 var genreAction = 28
 var genreComedy = 35
@@ -155,10 +160,22 @@ $("#zipCodeButton").on("click", function() {
 
   if (validateZip (zipNumber) === false) {
     $("#invalidZip").text("Invalid zip code. Please enter a valid zip code")
+    $("#zipCode").val("")
   }
 
+  else {
+    $("#invalidZip").text("")
+    $("#mapContainer").show()
 
+  }
 })
+
+// <div id="mapContainer"></div>
+
+
+
+
+
 
 
 
