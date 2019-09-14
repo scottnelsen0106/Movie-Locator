@@ -49,4 +49,9 @@ button:hover {
     width: 100px;
     background: #fff;
     color: #0e1c3c;
+} 
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
 }
