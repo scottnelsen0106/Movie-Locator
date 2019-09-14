@@ -8,6 +8,7 @@
 firebase.initializeApp(config);
 var database = firebase.database(); */
 
+
 $(document).ready(function() {
   $("#genreButtons").hide()
   $("#moviePoster").hide()
@@ -93,12 +94,13 @@ $("#btn-Action").on("click", function () {
 })
 
 
-$("img").unbind("click").on("click", function (){ 
+$("img").on("click", function (){ 
 
+  console.log(event);
   var movieTitle = $(this).attr("value")
   console.log("WHYYYY " + movieTitle)
 
-  fetch ("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=" + "crazy ex girlfriend" + "&country=us", {
+  fetch ("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=" + movieTitle + "&country=us", {
 
   "method": "GET",
   "headers": {
@@ -108,20 +110,26 @@ $("img").unbind("click").on("click", function (){
   })
 
   .then(response => {
+
+    $("#movieOnlineLocation").empty()
+
       response.json().then(function(parsedJSON) {
         console.log(parsedJSON);
 
         if (parsedJSON.results.length === 0) {
-          $("#movieOnlineLocation").text("<p>" + "Not Available Online...Choose Another!" + "</p>")
+          $("#movieOnlineLocation").append(movieTitle + " is not available online...Choose Another!")
         }  
 
         else {
           var arr = parsedJSON.results[0].locations
 
-          jQuery.each(arr, function(i,val) {
-            $("#movieOnlineLocation").append(val.display_name + " ")
-            console.log ("HEEEY" + val.display_name)
-          })
+          for(var i = 0; i < parsedJSON.results[0].locations.length; i++)
+          $("#movieOnlineLocation").append("You can watch " + movieTitle + " on " + parsedJSON.results[0].locations[i].display_name)
+
+    /*     jQuery.each(arr, function(i,val) {
+            $("#movieOnlineLocation").replaceWith("<p>" + val.display_name + "<p>")
+            console.log ("HEEEY232323" + val.display_name) 
+          })*/
         }
       });
   })
