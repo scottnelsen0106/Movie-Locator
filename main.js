@@ -8,7 +8,6 @@
 firebase.initializeApp(config);
 var database = firebase.database(); */
 
-
 $(document).ready(function() {
   $("#genreButtons").hide()
   $("#moviePoster").hide()
@@ -17,18 +16,6 @@ $(document).ready(function() {
 $("#stayHome").on("click", function () {
   $("#genreButtons").show()
 })
-
-
-/*
-var movie = "elf"
-var tmdbMovieURL = "https://api.themoviedb.org/3/search/movie?api_key=fba4b8ce04296fb7fc2c5e02f832d206&query=" + movie;
-
-var tmdbGenreURL = "https://api.themoviedb.org/3/discover/movie?api_key=fba4b8ce04296fb7fc2c5e02f832d206&with_genres=" + genre;
-console.log(tmdbGenreURL)
-
-var tmdbHomeReleaseURL = "https://api.themoviedb.org/3/discover/movie?api_key=fba4b8ce04296fb7fc2c5e02f832d206&release_date.lte=" + releaseDateHome;
-console.log(releaseDateHome)
-*/
 
 var genreAction = 28
 var genreComedy = 35
@@ -51,9 +38,6 @@ var randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNu
 var randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
 var randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
 var randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-
-
-console.log("Action: " + actionStayReleaseURL)
 
 function getactionMovies() {
 
@@ -135,3 +119,34 @@ $("img").on("click", function (){
   })
 
 })
+
+
+$("goOut").on("click", function () {
+  $("#genreButtons").hide();
+  $("#moviePoster").hide();
+  $("#movieOnlineLocation").hide();
+  $("zipCodeForm").show();
+})
+
+
+var zipCode = document.getElementById("zipCode").value;
+
+function validateZip (str) {
+  isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+
+  if (isValidZip.test(str)) {
+    return true;
+  }
+  
+  else {
+    return false;
+  }
+}
+
+/* $("#zipCodeButton").on("click", function() {
+  validateZip()
+  if (return === "false") 
+
+}) */
+
+
