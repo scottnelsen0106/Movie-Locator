@@ -51,10 +51,10 @@ button:hover {
     color: #0e1c3c;
 } 
 
-.row {
+/* .row {
     display: flex;
     flex-wrap: wrap;
-}
+} */
 
 #moviePoster {
     /* display:flex;
@@ -66,4 +66,8 @@ button:hover {
 .imgPoster {
     border:5px solid pink;
 
+}
+
+#buttonOptions {
+    float: left;
 }
