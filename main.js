@@ -45,7 +45,14 @@ var dramaStayReleaseURL = "https://api.themoviedb.org/3/discover/movie?api_key=f
 
 var horrorStayReleaseURL = "https://api.themoviedb.org/3/discover/movie?api_key=fba4b8ce04296fb7fc2c5e02f832d206&release_date.lte=" + releaseDateStay + "&with_genres=" + genreHorror;
 
-console.log(actionStayReleaseURL)
+var movieIndexNumber = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+var randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+var randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+var randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+var randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+
+
+console.log("Action: " + actionStayReleaseURL)
 
 function getactionMovies() {
 
@@ -54,22 +61,22 @@ function getactionMovies() {
     method: "GET"
   }).then(function(response) { 
 
-    var movieOne = response.results[0].title
+    var movieOne = response.results[randomMovieIndexOne].title
     console.log(movieOne)
 
-    var movieTwo = response.results[1].title
+    var movieTwo = response.results[randomMovieIndexTwo].title
     console.log(movieTwo)
 
-    var movieThree = response.results[2].title
+    var movieThree = response.results[randomMovieIndexThree].title
     console.log(movieThree)
 
-    var movieFour = response.results[3].title
+    var movieFour = response.results[randomMovieIndexFour].title
     console.log(movieFour)
 
-    $("#movie1").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[0].poster_path)
-    $("#movie2").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[1].poster_path)
-    $("#movie3").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[2].poster_path)
-    $("#movie4").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[3].poster_path)
+    $("#movie1").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexOne].poster_path)
+    $("#movie2").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexTwo].poster_path)
+    $("#movie3").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexThree].poster_path)
+    $("#movie4").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexFour].poster_path)
 
     $("#movie1").attr("value", movieOne)
     $("#movie2").attr("value", movieTwo)
@@ -86,12 +93,12 @@ $("#btn-Action").on("click", function () {
 })
 
 
-$("img").on("click", function (){ 
+$("img").unbind("click").on("click", function (){ 
 
   var movieTitle = $(this).attr("value")
-  console.log(movieTitle)
+  console.log("WHYYYY " + movieTitle)
 
-  fetch ("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=" + movieTitle + "&country=us", {
+  fetch ("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=" + "crazy ex girlfriend" + "&country=us", {
 
   "method": "GET",
   "headers": {
@@ -100,13 +107,22 @@ $("img").on("click", function (){
     }
   })
 
-  /* need for loop */
-    .then(response => {
+  .then(response => {
       response.json().then(function(parsedJSON) {
         console.log(parsedJSON);
 
-        var movieLocationOne = parsedJSON.results[0].locations[0].display_name
-        console.log(movieLocationOne)
+        if (parsedJSON.results.length === 0) {
+          $("#movieOnlineLocation").text("<p>" + "Not Available Online...Choose Another!" + "</p>")
+        }  
+
+        else {
+          var arr = parsedJSON.results[0].locations
+
+          jQuery.each(arr, function(i,val) {
+            $("#movieOnlineLocation").append(val.display_name + " ")
+            console.log ("HEEEY" + val.display_name)
+          })
+        }
       });
   })
 
