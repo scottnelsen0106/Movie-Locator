@@ -60,6 +60,7 @@ button:hover {
     /* display:flex;
     flex-wrap: wrap; */
     background-color: #7de72b;
+    float: 
 
 }
 
@@ -69,5 +70,13 @@ button:hover {
 }
 
 #buttonOptions {
+    float: left;
+}
+
+#moviePoster {
+    float: left;
+}
+
+#genreButtons {
     float: left;
 }
