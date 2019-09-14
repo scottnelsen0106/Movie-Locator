@@ -11,7 +11,7 @@ var database = firebase.database(); */
 $(document).ready(function() {
   $("#genreButtons").hide()
   $("#moviePoster").hide()
-  $("zipCodeForm").hide();
+  $("#zipCodeForm").hide();
 });
 
 $("#stayHome").on("click", function () {
@@ -130,7 +130,7 @@ $("goOut").on("click", function () {
 })
 
 
-var zipCode = document.getElementById("zipCode").value;
+var zipCode = document.getElementById("#zipCode").value;
 
 function validateZip (str) {
   isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
