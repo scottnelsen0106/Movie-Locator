@@ -11,6 +11,7 @@ var database = firebase.database(); */
 $(document).ready(function() {
   $("#genreButtons").hide()
   $("#moviePoster").hide()
+  $("zipCodeForm").hide();
 });
 
 $("#stayHome").on("click", function () {
