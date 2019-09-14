@@ -16,6 +16,7 @@ $(document).ready(function() {
 
 $("#stayHome").on("click", function () {
   $("#genreButtons").show()
+  $("#zipCodeForm").hide();
 })
 
 var genreAction = 28
@@ -122,15 +123,18 @@ $("img").on("click", function (){
 })
 
 
-$("goOut").on("click", function () {
+$("#goOut").on("click", function () {
   $("#genreButtons").hide();
   $("#moviePoster").hide();
   $("#movieOnlineLocation").hide();
-  $("zipCodeForm").show();
+  $("#zipCodeForm").show();
 })
 
+var zipNumber
 
-var zipCode = document.getElementById("#zipCode").value;
+function getZipCode () {
+  zipNumber = $("#zipCode").val().trim();
+}
 
 function validateZip (str) {
   isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
@@ -144,10 +148,12 @@ function validateZip (str) {
   }
 }
 
-/* $("#zipCodeButton").on("click", function() {
-  validateZip()
-  if (return === "false") 
+$("#zipCodeButton").on("click", function() {
+  getZipCode ()
+  console.log(zipNumber)
+  validateZip ()
 
-}) */
+})
+
 
 
