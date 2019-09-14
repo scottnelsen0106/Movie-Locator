@@ -55,3 +55,15 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
 }
+
+#moviePoster {
+    /* display:flex;
+    flex-wrap: wrap; */
+    background-color: #7de72b;
+
+}
+
+.imgPoster {
+    border:5px solid pink;
+
+}
