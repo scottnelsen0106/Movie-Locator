@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
   <link rel="stylesheet" href="style.css">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" integrity="sha256-a2tobsqlbgLsWs7ZVUGgP5IvWZsx8bTNQpzsqCSm5mk=" crossorigin="anonymous" />
+  <meta name="viewport" content="initial-scale=1.0,
+   width=device-width" />
   <title>Project 1 MSJ</title>
 </head>
 <body>
@@ -17,64 +18,116 @@
           <h1 class="display-4">Movie Locator</h1>
           <p class="lead">Stop scrolling for movies, find exactly what you want and where to watch it! </p>
         </div>
+    </div>
+
+    <div class="container" id="buttonOptions">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <h3>What would you like to do?</h3>
+        </div>
       </div>
-          <div class="container" id="buttonOptions">
-            <h3>What would you like to do?</h3>
+        
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <button  id="stayHome">Stay Home</button>
+              <button id="goOut">Go Out</button>
+          </div>
+      </div>    
+    </div>
+
+    <div class="container" id="genreButtons">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <h3>What kind of movie would you like to watch?</h3>
+          <button id="btn-Action" value="action">Action</button>
+          <button id="btn-Comedy" value="comedy">Comedy</button>
+          <button id="btn-Drama" value="drama">Drama</button>
+          <button id="btn-Horror" value="horror">Horror</button><br><br>
+        </div>
+      </div>
+    </div>
+        
+    <div class="container" id="moviePoster">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><br>
+                  <div class="imgPoster"> <img src="" alt="Movie" id="movie1"></div><br>
+            </div>    
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><br>
+                <div class="imgPoster"> <img src="" alt="Movie" id="movie2"></div><br>
+            </div>  
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><br>
+              <div class="imgPoster"> <img src="" alt="Movie" id="movie3"></div><br>
+            </div>  
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><br>
+              <div class="imgPoster"> <img src="" alt="Movie" id="movie4"></div><br>
+            </div>
             <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                  <button id="stayHome">Stay Home </button>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                      <button id="goOut">Go Out</button>
-                    </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <p id="movieOnlineLocation">
+                </p>
               </div>
-                <div class="container" id="genreButtons">
-                  <h3>What kind of movie would you like to watch?</h3>
-                  <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                      <button id="btn-Action" value="action">Action</button>
-                      <button id="btn-Comedy" value="comedy">Comedy</button>
-                      <button id="btn-Drama" value="drama">Drama</button>
-                      <button id="btn-Horror" value="horror">Horror</button>
-                    </div>
-                  </div>
+            </div>
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  id="diffResetButtons">
+                <button  id="diffMovies">Different Movies</button>
+                <button id="resetButton">Reset</button>
                 </div>
             </div>
-          </div>
-              <div class="container" id="moviePoster">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><br>
-                        <div class="imgPoster"> <img src="" alt="Movie" id="movie1"></div><br>
-                            <div id="movieOnlineLocation">
-                              <h2>Test</h2>
-                            </div>
-                        <div class="imgPoster"> <img src="" alt="Movie" id="movie2"></div><br>
-                        <div id="movieOnlineLocation">
-                          <h2>Test</h2>
-                        </div>
-                        <div class="imgPoster"> <img src="" alt="Movie" id="movie3"></div><br>
-                        <div id="movieOnlineLocation">
-                          <h2>Test</h2>
-                        </div>
-                        <div class="imgPoster"> <img src="" alt="Movie" id="movie4"></div><br>
-                        <div id="movieOnlineLocation">
-                          <h2>Test</h2>
-                        </div>
+        </div>  
+    </div>
+                  <!-- <div class="container">
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <p id="movieOnlineLocation">
+                        </p>
+                      </div>
                     </div>
-                </div>
+                  </div> -->
+            
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zipCodeForm">
+          <div class="input-group mb-3">
+            <p>Enter Your Zip Code</p><br>
+            <input type="text" value= "" class="form-control" placeholder="37128" aria-label="Zip Code" aria-describedby="basic-addon2" id="zipCode">
+            <div class="input-group-append">
+              <button  type="button" id="zipCodeButton">Find Theaters</button>
+            </div>
+            <div>
+              <p id="invalidZip">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="containter">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div id="mapContainer"> 
+            </div>
+            <div id="moviePhysicalLocation"> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
                 
 
 
 
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script  type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="main.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  
-    <script src="main.js"></script> 
+ 
 
 </body>
 </html>
