@@ -11,13 +11,14 @@ var database = firebase.database(); */
 $(document).ready(function() {
   $("#genreButtons").hide()
   $("#moviePoster").hide()
-  $("#zipCodeForm").hide();
+  $("#zipCodeForm").hide()
   $("#mapContainer").hide()
 });
 
 $("#stayHome").on("click", function () {
   $("#genreButtons").show()
   $("#zipCodeForm").hide();
+  $("#diffResetButtons").hide()
 })
 
 var platform = new H.service.Platform({
@@ -46,7 +47,7 @@ var randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNu
 var randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
 var randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
 
-function getactionMovies() {
+function getActionMovies() {
 
   $.ajax({
     url: actionStayReleaseURL,
@@ -54,16 +55,12 @@ function getactionMovies() {
   }).then(function(response) { 
 
     var movieOne = response.results[randomMovieIndexOne].title
-    console.log(movieOne)
 
     var movieTwo = response.results[randomMovieIndexTwo].title
-    console.log(movieTwo)
 
     var movieThree = response.results[randomMovieIndexThree].title
-    console.log(movieThree)
 
     var movieFour = response.results[randomMovieIndexFour].title
-    console.log(movieFour)
 
     $("#movie1").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexOne].poster_path)
     $("#movie2").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexTwo].poster_path)
@@ -74,22 +71,124 @@ function getactionMovies() {
     $("#movie2").attr("value", movieTwo)
     $("#movie3").attr("value", movieThree)
     $("#movie4").attr("value",movieFour)
-    console.log("https://image.tmdb.org/t/p/w185/" + response.results[0].poster_path)
 })
 }
 
+function getComedyMovies() {
+
+  $.ajax({
+    url: comedyStayReleaseURL,
+    method: "GET"
+  }).then(function(response) { 
+
+    var movieOne = response.results[randomMovieIndexOne].title
+
+    var movieTwo = response.results[randomMovieIndexTwo].title
+
+    var movieThree = response.results[randomMovieIndexThree].title
+
+    var movieFour = response.results[randomMovieIndexFour].title
+
+    $("#movie1").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexOne].poster_path)
+    $("#movie2").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexTwo].poster_path)
+    $("#movie3").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexThree].poster_path)
+    $("#movie4").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexFour].poster_path)
+
+    $("#movie1").attr("value", movieOne)
+    $("#movie2").attr("value", movieTwo)
+    $("#movie3").attr("value", movieThree)
+    $("#movie4").attr("value",movieFour)
+})
+}
+
+function getDramaMovies() {
+
+  $.ajax({
+    url: dramaStayReleaseURL,
+    method: "GET"
+  }).then(function(response) { 
+
+    var movieOne = response.results[randomMovieIndexOne].title
+
+    var movieTwo = response.results[randomMovieIndexTwo].title
+
+    var movieThree = response.results[randomMovieIndexThree].title
+
+    var movieFour = response.results[randomMovieIndexFour].title
+
+    $("#movie1").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexOne].poster_path)
+    $("#movie2").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexTwo].poster_path)
+    $("#movie3").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexThree].poster_path)
+    $("#movie4").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexFour].poster_path)
+
+    $("#movie1").attr("value", movieOne)
+    $("#movie2").attr("value", movieTwo)
+    $("#movie3").attr("value", movieThree)
+    $("#movie4").attr("value",movieFour)
+})
+}
+
+function getHorrorMovies() {
+
+  $.ajax({
+    url: horrorStayReleaseURL,
+    method: "GET"
+  }).then(function(response) { 
+
+    var movieOne = response.results[randomMovieIndexOne].title
+
+    var movieTwo = response.results[randomMovieIndexTwo].title
+
+    var movieThree = response.results[randomMovieIndexThree].title
+
+    var movieFour = response.results[randomMovieIndexFour].title
+
+    $("#movie1").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexOne].poster_path)
+    $("#movie2").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexTwo].poster_path)
+    $("#movie3").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexThree].poster_path)
+    $("#movie4").attr("src","https://image.tmdb.org/t/p/w185/" + response.results[randomMovieIndexFour].poster_path)
+
+    $("#movie1").attr("value", movieOne)
+    $("#movie2").attr("value", movieTwo)
+    $("#movie3").attr("value", movieThree)
+    $("#movie4").attr("value",movieFour)
+})
+}
+
+var movieGenreSelected
+
 $("#btn-Action").on("click", function () {
     $("#moviePoster").show()
-    getactionMovies()
-    console.log("hey")
+    getActionMovies()
+    movieGenreSelected = "action"
+    console.log("genre: " + movieGenreSelected)
+})
+
+$("#btn-Comedy").on("click", function () {
+  $("#moviePoster").show()
+  getComedyMovies()
+  movieGenreSelected = "comedy"
+  console.log("genre: " + movieGenreSelected)
+})
+
+$("#btn-Drama").on("click", function () {
+  $("#moviePoster").show()
+  getDramaMovies()
+  movieGenreSelected = "drama"
+  console.log("genre: " + movieGenreSelected)
+})
+
+$("#btn-Horror").on("click", function () {
+  $("#moviePoster").show()
+  getHorrorMovies()
+  movieGenreSelected = "horror"
+  console.log("genre: " + movieGenreSelected)
 })
 
 
 $("img").on("click", function (){ 
-
-  console.log(event);
+  $("#diffResetButtons").show()
   var movieTitle = $(this).attr("value")
-  console.log("WHYYYY " + movieTitle)
 
   fetch ("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=" + movieTitle + "&country=us", {
 
@@ -105,7 +204,6 @@ $("img").on("click", function (){
     $("#movieOnlineLocation").empty()
 
       response.json().then(function(parsedJSON) {
-        console.log(parsedJSON);
 
         if (parsedJSON.results.length === 0) {
           $("#movieOnlineLocation").append(movieTitle + " is not available online...Choose Another!")
@@ -122,17 +220,62 @@ $("img").on("click", function (){
             console.log ("HEEEY232323" + val.display_name) 
           })*/
         }
+
+
+        $("#diffMovies").on("click", function (){
+          if (movieGenreSelected === "action") {
+            randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            getActionMovies()
+            $("#movieOnlineLocation").empty()
+          }
+          if (movieGenreSelected === "comedy") {
+            randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            getComedyMovies()
+          }
+          if (movieGenreSelected === "drama") {
+            randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            getDramaMovies()
+          }
+          if (movieGenreSelected === "horror") {
+            randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+            getHorrorMovies()
+          }
+        })
+
+        $("#resetButton").on("click", function (){
+          $("#genreButtons").hide()
+          $("#moviePoster").hide()
+          randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+          randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+          randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+          randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+          $("#movieOnlineLocation").empty()
+        })
+
       });
   })
 
-})
 
+})
 
 $("#goOut").on("click", function () {
   $("#genreButtons").hide();
   $("#moviePoster").hide();
   $("#movieOnlineLocation").hide();
   $("#zipCodeForm").show();
+  console.log("BUTT")
 })
 
 var zipNumber
