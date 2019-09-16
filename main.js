@@ -21,9 +21,6 @@ $("#stayHome").on("click", function () {
   $("#diffResetButtons").hide()
 })
 
-var platform = new H.service.Platform({
-  'apikey': '{gY7CJ17DQXX4MQuLdqRbIbNV8WD4cnzKVzCyWWm2oog'
-});
 
 var genreAction = 28
 var genreComedy = 35
@@ -158,13 +155,15 @@ function getHorrorMovies() {
 var movieGenreSelected
 
 $("#btn-Action").on("click", function () {
-    $("#moviePoster").show()
-    getActionMovies()
-    movieGenreSelected = "action"
-    console.log("genre: " + movieGenreSelected)
+  $("#movieOnlineLocation").empty()
+  $("#moviePoster").show()
+  getActionMovies()
+  movieGenreSelected = "action"
+  console.log("genre: " + movieGenreSelected)
 })
 
 $("#btn-Comedy").on("click", function () {
+  $("#movieOnlineLocation").empty()
   $("#moviePoster").show()
   getComedyMovies()
   movieGenreSelected = "comedy"
@@ -172,6 +171,7 @@ $("#btn-Comedy").on("click", function () {
 })
 
 $("#btn-Drama").on("click", function () {
+  $("#movieOnlineLocation").empty()
   $("#moviePoster").show()
   getDramaMovies()
   movieGenreSelected = "drama"
@@ -179,6 +179,7 @@ $("#btn-Drama").on("click", function () {
 })
 
 $("#btn-Horror").on("click", function () {
+  $("#movieOnlineLocation").empty()
   $("#moviePoster").show()
   getHorrorMovies()
   movieGenreSelected = "horror"
@@ -213,7 +214,7 @@ $("img").on("click", function (){
           var arr = parsedJSON.results[0].locations
 
           for(var i = 0; i < parsedJSON.results[0].locations.length; i++)
-          $("#movieOnlineLocation").append("You can watch " + movieTitle + " on " + parsedJSON.results[0].locations[i].display_name)
+          $("#movieOnlineLocation").append("You can watch " + movieTitle + " on " + parsedJSON.results[0].locations[i].display_name + ".  ")
 
     /*     jQuery.each(arr, function(i,val) {
             $("#movieOnlineLocation").replaceWith("<p>" + val.display_name + "<p>")
@@ -275,7 +276,6 @@ $("#goOut").on("click", function () {
   $("#moviePoster").hide();
   $("#movieOnlineLocation").hide();
   $("#zipCodeForm").show();
-  console.log("BUTT")
 })
 
 var zipNumber
@@ -309,11 +309,51 @@ $("#zipCodeButton").on("click", function() {
   else {
     $("#invalidZip").text("")
     $("#mapContainer").show()
-
+    movieMapInfo()
   }
 })
 
-// <div id="mapContainer"></div>
+
+function movieMapInfo() {
+  getZipCode ()
+  var movieMapURL = "https://www.mapquestapi.com/search/v2/radius?origin=" + zipNumber + "&radius=15&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|783201&outFormat=json&key=yMPy5Bl4sQ0I1GpYAsF7t9R5iLuWuY6V"
+
+  $.ajax({
+    url: movieMapURL,
+    method: "GET"
+  }).then(function(response) { 
+    
+
+    for (var i = 0; i < response.searchResults.length; i++) {
+      console.log(response.searchResults[i].fields)
+      console.log(response.searchResults[i].fields.name)
+
+      var movieName = response.searchResults[i].fields.name
+
+      var movieNamePlus
+
+      function updateName() {
+        movieNamePlus = movieName.split(" ").join("+");
+      }
+
+      updateName () 
+
+      $("#moviePhysicalLocation").append("<ul>" + response.searchResults[i].fields.name + ": " +  "<a href= https://www.google.com/search?q=" +  movieNamePlus + " target='_blank'>Click here to see what movies are playing here</a>" + "</ul>")
+
+      // ": <a href='https://www.google.com/search?q='" + response.searchResults[i].fields.name "target='_blank'> Click here to see what movies are playing</a>" + 
+
+      /* $("#movieOnlineLocation").append("You can watch " + movieTitle + " on " + parsedJSON.results[0].locations[i].display_name + ".  ") */
+    }
+
+    
+  
+  })
+
+}
+
+// parsedJSON.searchResults[i].length
+
+/* <div id="mapContainer"></div> */
 
 
 
