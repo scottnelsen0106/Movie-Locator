@@ -12,13 +12,12 @@ $(document).ready(function() {
   $("#genreButtons").hide()
   $("#moviePoster").hide()
   $("#zipCodeForm").hide()
-  $("#mapContainer").hide()
+  $("#movieTheaterLocations").hide()
 });
 
 $("#stayHome").on("click", function () {
   $("#genreButtons").show()
   $("#zipCodeForm").hide();
-  $("#diffResetButtons").hide()
 })
 
 
@@ -38,11 +37,21 @@ var dramaStayReleaseURL = "https://api.themoviedb.org/3/discover/movie?api_key=f
 
 var horrorStayReleaseURL = "https://api.themoviedb.org/3/discover/movie?api_key=fba4b8ce04296fb7fc2c5e02f832d206&release_date.lte=" + releaseDateStay + "&with_genres=" + genreHorror;
 
+
 var movieIndexNumber = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
-var randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-var randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-var randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-var randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
+var n;
+var randomMovieArray = []
+  for (n = 0; n <= 3; ++n) {
+    var i = Math.floor((Math.random() * (19-n)))
+    randomMovieArray.push(movieIndexNumber[i])
+    movieIndexNumber[i] = movieIndexNumber[19-n]
+  }
+
+var randomMovieIndexOne = randomMovieArray[0]
+var randomMovieIndexTwo = randomMovieArray[1]
+var randomMovieIndexThree = randomMovieArray[2]
+var randomMovieIndexFour = randomMovieArray[3]
+
 
 function getActionMovies() {
 
@@ -188,7 +197,6 @@ $("#btn-Horror").on("click", function () {
 
 
 $("img").on("click", function (){ 
-  $("#diffResetButtons").show()
   var movieTitle = $(this).attr("value")
 
   fetch ("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=" + movieTitle + "&country=us", {
@@ -222,53 +230,92 @@ $("img").on("click", function (){
           })*/
         }
 
-
-        $("#diffMovies").on("click", function (){
-          if (movieGenreSelected === "action") {
-            randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            getActionMovies()
-            $("#movieOnlineLocation").empty()
-          }
-          if (movieGenreSelected === "comedy") {
-            randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            getComedyMovies()
-          }
-          if (movieGenreSelected === "drama") {
-            randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            getDramaMovies()
-          }
-          if (movieGenreSelected === "horror") {
-            randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-            getHorrorMovies()
-          }
-        })
-
-        $("#resetButton").on("click", function (){
-          $("#genreButtons").hide()
-          $("#moviePoster").hide()
-          randomMovieIndexOne = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-          randomMovieIndexTwo = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-          randomMovieIndexThree = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-          randomMovieIndexFour = movieIndexNumber[Math.floor(Math.random()*movieIndexNumber.length)]
-          $("#movieOnlineLocation").empty()
-        })
-
       });
   })
 
+})
 
+$("#diffMovies").on("click", function (){
+  var movieIndexNumber = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+  var n;
+  var randomMovieArray = []
+
+  if (movieGenreSelected === "action") {
+    for (n = 0; n <= 3; ++n) {
+      var i = Math.floor((Math.random() * (19-n)))
+      randomMovieArray.push(movieIndexNumber[i])
+      movieIndexNumber[i] = movieIndexNumber[19-n]
+    }
+    randomMovieIndexOne = randomMovieArray[0]
+    randomMovieIndexTwo = randomMovieArray[1]
+    randomMovieIndexThree = randomMovieArray[2]
+    randomMovieIndexFour = randomMovieArray[3]
+
+    getActionMovies()
+    $("#movieOnlineLocation").empty()
+  }
+  if (movieGenreSelected === "comedy") {
+    for (n = 0; n <= 3; ++n) {
+      var i = Math.floor((Math.random() * (19-n)))
+      randomMovieArray.push(movieIndexNumber[i])
+      movieIndexNumber[i] = movieIndexNumber[19-n]
+    }
+    randomMovieIndexOne = randomMovieArray[0]
+    randomMovieIndexTwo = randomMovieArray[1]
+    randomMovieIndexThree = randomMovieArray[2]
+    randomMovieIndexFour = randomMovieArray[3]
+
+    getComedyMovies()
+    $("#movieOnlineLocation").empty()
+  }
+  if (movieGenreSelected === "drama") {
+   for (n = 0; n <= 3; ++n) {
+      var i = Math.floor((Math.random() * (19-n)))
+      randomMovieArray.push(movieIndexNumber[i])
+      movieIndexNumber[i] = movieIndexNumber[19-n]
+    }
+    randomMovieIndexOne = randomMovieArray[0]
+    randomMovieIndexTwo = randomMovieArray[1]
+    randomMovieIndexThree = randomMovieArray[2]
+    randomMovieIndexFour = randomMovieArray[3]
+
+    getDramaMovies()
+    $("#movieOnlineLocation").empty()
+  }
+  if (movieGenreSelected === "horror") {
+    for (n = 0; n <= 3; ++n) {
+      var i = Math.floor((Math.random() * (19-n)))
+      randomMovieArray.push(movieIndexNumber[i])
+      movieIndexNumber[i] = movieIndexNumber[19-n]
+    }
+    randomMovieIndexOne = randomMovieArray[0]
+    randomMovieIndexTwo = randomMovieArray[1]
+    randomMovieIndexThree = randomMovieArray[2]
+    randomMovieIndexFour = randomMovieArray[3]
+
+    getHorrorMovies()
+    $("#movieOnlineLocation").empty()
+  }
+})
+
+$("#resetButton").on("click", function (){
+  $("#genreButtons").hide()
+  $("#moviePoster").hide()
+
+  var movieIndexNumber = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+  var n;
+  var randomMovieArray = []
+  for (n = 0; n <= 3; ++n) {
+      var i = Math.floor((Math.random() * (19-n)))
+      randomMovieArray.push(movieIndexNumber[i])
+      movieIndexNumber[i] = movieIndexNumber[19-n]
+    }
+    randomMovieIndexOne = randomMovieArray[0]
+    randomMovieIndexTwo = randomMovieArray[1]
+    randomMovieIndexThree = randomMovieArray[2]
+    randomMovieIndexFour = randomMovieArray[3]
+    
+  $("#movieOnlineLocation").empty()
 })
 
 $("#goOut").on("click", function () {
@@ -302,27 +349,31 @@ $("#zipCodeButton").on("click", function() {
   console.log(validateZip (zipNumber))
 
   if (validateZip (zipNumber) === false) {
+    $("#movieTheaterLocations").hide()
     $("#invalidZip").text("Invalid zip code. Please enter a valid zip code")
     $("#zipCode").val("")
   }
 
   else {
     $("#invalidZip").text("")
-    $("#mapContainer").show()
-    movieMapInfo()
+    $("#moviePhysicalLocation").empty()
+    $("#movieTheaterLocations").show()
+    getZipCode ()
+    movieMapInfo ()
   }
 })
 
 
 function movieMapInfo() {
-  getZipCode ()
+  $("#zipheader").empty()
+  $("#zipheader").append("Movie Theaters Within A 15 Mile Radius Of " + zipNumber)
+
   var movieMapURL = "https://www.mapquestapi.com/search/v2/radius?origin=" + zipNumber + "&radius=15&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|783201&outFormat=json&key=yMPy5Bl4sQ0I1GpYAsF7t9R5iLuWuY6V"
 
   $.ajax({
     url: movieMapURL,
     method: "GET"
   }).then(function(response) { 
-    
 
     for (var i = 0; i < response.searchResults.length; i++) {
       console.log(response.searchResults[i].fields)
@@ -343,13 +394,19 @@ function movieMapInfo() {
       // ": <a href='https://www.google.com/search?q='" + response.searchResults[i].fields.name "target='_blank'> Click here to see what movies are playing</a>" + 
 
       /* $("#movieOnlineLocation").append("You can watch " + movieTitle + " on " + parsedJSON.results[0].locations[i].display_name + ".  ") */
+
+
     }
-
-    
-  
   })
-
 }
+
+$("#resetLocationButton").on("click", function (){
+  $("#zipCode").val("")
+  $("#moviePhysicalLocation").empty()
+  $("#movieTheaterLocations").hide()
+  $("#zipCodeForm").hide()
+  $("#zipheader").empty()
+})
 
 // parsedJSON.searchResults[i].length
 

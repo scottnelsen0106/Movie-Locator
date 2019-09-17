@@ -89,9 +89,9 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zipCodeForm">
           <div class="input-group mb-3">
             <p>Enter Your Zip Code</p>
-            <input type="text" value= "" class="form-control" placeholder="37128" aria-label="Zip Code" aria-describedby="basic-addon2" id="zipCode">
+            <input type="text" value= "" class="form-control" placeholder="Zip Code" aria-label="Zip Code" aria-describedby="basic-addon2" id="zipCode">
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="zipCodeButton">Button</button>
+              <button class="btn btn-outline-secondary" type="button" id="zipCodeButton">Submit</button>
             </div>
             <div>
               <p id="invalidZip">
@@ -103,11 +103,15 @@
       
       <div class="containter">
         <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div id="mapContainer"> 
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id= "movieTheaterLocations">
+            <div> 
+                <h4 id="zipheader"></h4>
             </div>
+            <br />
             <div id="moviePhysicalLocation"> 
             </div>
+            <br />
+            <button id="resetLocationButton">Reset</button>
           </div>
         </div>
       </div>
