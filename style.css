@@ -58,6 +58,7 @@ button:hover {
 } */
 
 
+
 img {
     border: 1px solid #fff;
 }
@@ -73,6 +74,23 @@ img:hover {
     float: left;
     
     
+
+#moviePoster {
+    /* display:flex;
+    flex-wrap: wrap; */
+    background-color: #7de72b;
+    float: 
+
+}
+
+.imgPoster {
+    border:5px solid pink;
+
+}
+
+#buttonOptions {
+    float: left;
+
 }
 
 #moviePoster {
@@ -81,6 +99,7 @@ img:hover {
 
 #genreButtons {
     float: left;
+
 }
 
 .form-control {
@@ -89,4 +108,5 @@ img:hover {
 
 button #resetButton {
     margin-right: 20px;
+
 }
