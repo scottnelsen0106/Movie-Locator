@@ -41,7 +41,7 @@ button {
     border: 1px solid #fff;
     color: white;
     padding: 5px;
-   
+    margin: 5px;
   
 }
 
@@ -89,4 +89,29 @@ img:hover {
 
 button #resetButton {
     margin-right: 20px;
+}
+
+#mainContainer {
+    align-content: center;
+}
+
+#zipCodeForm{
+    /* float: left; */
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    border-top: 1px solid #fff;
+    width: 100%;
+    margin-top: 100px;
+    padding: 5px;
+}
+
+#diffMovies {
+    margin: 5px;
+    margin-right: 5px;
+
 }
