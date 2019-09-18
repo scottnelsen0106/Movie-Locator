@@ -12,7 +12,7 @@
   <title>Project 1 MSJ</title>
 </head>
 <body>
-  
+  <div class="container" id="mainContainer">
     <div class="jumbotron jumbotron-fluid">
         <div class="container animated fadeIn">
           <h1 class="display-4">Movie Locator</h1>
@@ -32,8 +32,37 @@
               <button  id="stayHome">Stay Home</button>
               <button id="goOut">Go Out</button>
           </div>
-      </div>    
-    </div>
+      </div><br> 
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zipCodeForm">
+            <div class="input-group mb-3">
+              <p>Enter Your Zip Code</p><br>
+              <input type="text" value= "" class="form-control" placeholder="Zip Code" aria-label="Zip Code" aria-describedby="basic-addon2" id="zipCode">
+              <div class="input-group-append">
+                <button  type="button" id="zipCodeButton">Find Theaters</button>
+              </div>
+              <div>
+                <p id="invalidZip">
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id= "movieTheaterLocations">
+              <div> 
+                  <h4 id="zipheader"></h4>
+              </div>
+              <br>
+              <div id="moviePhysicalLocation"> 
+              </div>
+              <br />
+              <button id="resetLocationButton">Reset</button>
+            </div>
+          </div>
+        </div>
+    
+    
 
     <div class="container" id="genreButtons">
       <div class="row animated fadeIn">
@@ -81,49 +110,25 @@
             </div>
             </div>
         </div>  
-    </div>
-                  <!-- <div class="container">
-                    <div class="row">
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <p id="movieOnlineLocation">
-                        </p>
-                      </div>
-                    </div>
-                  </div> -->
-            
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zipCodeForm">
-          <div class="input-group mb-3">
-            <p>Enter Your Zip Code</p><br>
-            <input type="text" value= "" class="form-control" placeholder="Zip Code" aria-label="Zip Code" aria-describedby="basic-addon2" id="zipCode">
-            <div class="input-group-append">
-              <button  type="button" id="zipCodeButton">Find Theaters</button>
-            </div>
-            <div>
-              <p id="invalidZip">
-              </p>
-            </div>
-          </div>
         </div>
-      </div>
       
-      <div class="containter">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id= "movieTheaterLocations">
-            <div> 
-                <h4 id="zipheader"></h4>
-            </div>
-            <br>
-            <div id="moviePhysicalLocation"> 
-            </div>
-            <br />
-            <button id="resetLocationButton">Reset</button>
-          </div>
-        </div>
-      </div>
+         
+          
+    </div>   
 
-    </div>
+    
+     <div class="container">
+        <div class="row"> 
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+            <footer id = "sticky-footer" class ="sticky-bottom">
+                Copyright 2019 © Max Magura | Joel Buentello | Scott Nelsen           
+              </footer>
+        </div>  
+        </div>
+        </div>
+      
+        
+    
                 
 
 
@@ -139,5 +144,4 @@
  
 
 </body>
-</html>
-                
+</html>     
