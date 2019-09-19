@@ -39,4 +39,4 @@ Have reset button to start process over
 
 ## Visit
 
-You can find the site [here] (https://max-magura.github.io/poject1/).
+You can find the site [here](https://max-magura.github.io/project1/).
