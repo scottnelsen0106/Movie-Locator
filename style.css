@@ -110,6 +110,19 @@ button #resetButton {
     text-align: center; 
 } 
 
+@media only screen and (max-width: 767px){
+    footer {
+    background-color: #000;
+    color: #FFFFFF;
+    font-size:.8em;
+    margin-top:25px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    position:static;
+    left:0;
+    bottom:0;
+    width:100%;
+
 #zipCode {
     margin-right: 20px;
     margin-left: 20px;
