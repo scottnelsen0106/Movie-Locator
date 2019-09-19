@@ -102,12 +102,12 @@ button #resetButton {
 }
 
  #sticky-footer {
-    width:100%;
-    margin: auto;
-    text-align: center;
-    height: 20px;
-    margin-top: 300px;
-    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center; 
 } 
 
 #zipCode {
