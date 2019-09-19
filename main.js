@@ -212,6 +212,7 @@ $("img").on("click", function (){
   .then(response => {
 
     $("#movieOnlineLocation").empty()
+    $("#movieOnlineLocation").show()
 
       response.json().then(function(parsedJSON) {
 
