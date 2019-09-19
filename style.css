@@ -101,11 +101,6 @@ button #resetButton {
     align-content: center;
 }
 
-#zipCodeForm{
-    /* float: left; */
-}
-
-
  #sticky-footer {
     width:100%;
     margin: auto;
@@ -115,12 +110,17 @@ button #resetButton {
     padding: 10px;
 } 
 
-#diffMovies {
-    margin: 5px;
-    margin-right: 5px;
+#zipCode {
+    margin-right: 20px;
+    margin-left: 20px;
+}
 
+#movieOnlineLocation {
+    margin-left: 20px;
 }
 
 p {
     padding: 5px;
-}
+
+.imgPoster {
+    margin-left: 5px;
