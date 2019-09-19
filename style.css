@@ -40,6 +40,8 @@ h1 {
 
 p.lead {
     text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 button {
@@ -101,7 +103,7 @@ button #resetButton {
     align-content: center;
 }
 
- #sticky-footer {
+ /* #sticky-footer {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -110,7 +112,7 @@ button #resetButton {
     text-align: center; 
 } 
 
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 939px){
     footer {
     background-color: #000;
     color: #FFFFFF;
@@ -122,6 +124,7 @@ button #resetButton {
     left:0;
     bottom:0;
     width:100%;
+} */
 
 #zipCode {
     margin-right: 20px;
@@ -133,7 +136,8 @@ button #resetButton {
 }
 
 p {
-    padding: 5px;
+    padding: 5px;}
 
 .imgPoster {
     margin-left: 5px;
+}
