@@ -36,6 +36,16 @@ Show results on screen with links to a google search of movie theaters nearby
 Have reset button to start process over
 
 ------------------------------------
+## Technologies 
+
+Technologies used for this project are:
+* HTML
+* CSS
+* Javascript 
+* JQUERY
+* IMDB API
+* Mapquest API
+------------------------------------
 
 ## Visit
 
