@@ -39,4 +39,4 @@ Have reset button to start process over
 
 ## Visit
 
-You can find the site [here](https://max-magura.github.io/project1/).
+You can find the site [here](https://scottnelsen0106.github.io/Movie-Locator/).
